@@ -96,12 +96,10 @@ which will load the iptables rules into memory at boot.
             All traffic outside of the time intervals are dropped.
         </p>
     </li>
-            <div>
-            <code>
-                iptables -A INPUT -p tcp --dport 22 -m time --kerneltz --timestart 8:00 --timestop 18:00 -j ACCEPT<br>
-                iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz --weekdays Mon,Tue,Wed,Thu,Fri --timestart 8:00 --timestop 18:00 -j ACCEPT
-            </code>
-        </div>
+    <code>
+    iptables -A INPUT -p tcp --dport 22 -m time --kerneltz --timestart 8:00 --timestop 18:00 -j ACCEPT<br>
+    iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz --weekdays Mon,Tue,Wed,Thu,Fri --timestart 8:00 --timestop 18:00 -j ACCEPT
+    </code>
     <br>
     <li>
         <strong>max-quota.sh</strong><br>
