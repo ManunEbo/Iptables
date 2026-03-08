@@ -19,10 +19,10 @@ which will load the iptables rules into memory at boot.
         As a result the script appends the source IP address to an ipset that is used in a rule that<br>
         blocks IP addresses if HTTP or HTTPS packets received.<br>
     </p>
-    <code>
-        iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
-        iptables -I INPUT -m set --match-set auto_blocked src -j DROP
-    </code>
+<code>
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
+iptables -I INPUT -m set --match-set auto_blocked src -j DROP
+</code>
 </li><br>
     <li>
         <strong>filter-by-mac.sh</strong><br>
@@ -31,11 +31,11 @@ which will load the iptables rules into memory at boot.
             from desired MAC addresses.<br>
             A default policy is used to ensure all other communication is dropped.<br>
         </p>
-        <div>
-            <code>
-                iptables -A FORWARD -m mac --mac-source $MAC -j ACCEPT
-            </code>
-        </div>
+<div>
+<code>
+iptables -A FORWARD -m mac --mac-source $MAC -j ACCEPT
+</code>
+</div>
     </li><br>
     <li>
         <strong>ipset-block-country.sh</strong><br>
