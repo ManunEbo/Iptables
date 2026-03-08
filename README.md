@@ -1,4 +1,4 @@
-<h1>Iptables examples</h1>
+<h1 style="background-color: red;color:lime;">Iptables examples</h1>
 
 <h3>project introduction</h3>
 
@@ -13,7 +13,7 @@ which will load the iptables rules into memory at boot.
 
 <ol>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20auto-block-ip.sh">auto-block-ip.sh</a><br>
+        <a href="https://github.com/ManunEbo/Iptables/tree/master/auto-block-ip.sh">auto-block-ip.sh</a><br>
         <p>
             This server isn't running a webserver. Thus no HTTP or HTTPS traffic is expected.<br>
             As a result the script appends the source IP address to an ipset that is used in a rule that<br>
