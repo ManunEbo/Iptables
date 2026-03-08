@@ -13,16 +13,16 @@ which will load the iptables rules into memory at boot.
 
 <ol>
 <li> 
-    <a href="https://github.com/ManunEbo/Iptables/tree/master/Scrips">auto-block-ip.sh</a><br>
+    <strong>auto-block-ip.sh</strong><br>
     <p>
         This server isn't running a webserver. Thus no HTTP or HTTPS traffic is expected.<br>
         As a result the script appends the source IP address to an ipset that is used in a rule that<br>
         blocks IP addresses if HTTP or HTTPS packets received.<br>
     </p>
-    <code>
-        iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
-        iptables -I INPUT -m set --match-set auto_blocked src -j DROP
-    </code>
+    ```
+    iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
+    iptables -I INPUT -m set --match-set auto_blocked src -j DROP
+    ```
 </li><br>
     <li>
         <a href="https://github.com/ManunEbo/Iptables/tree/master/%20filter-by-mac.sh">filter-by-mac.sh</a><br>
