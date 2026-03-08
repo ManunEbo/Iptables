@@ -106,7 +106,8 @@ All traffic outside of the time intervals are dropped.
 <div>
 <code>
 iptables -A INPUT -p tcp --dport 22 -m time --kerneltz --timestart 8:00 --timestop 18:00 -j ACCEPT<br>
-iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz --weekdays Mon,Tue,Wed,Thu,Fri\<br> --timestart 8:00 --timestop 18:00 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz \<br>
+ --weekdays Mon,Tue,Wed,Thu,Fri --timestart 8:00 --timestop 18:00 -j ACCEPT
 </code>
 </div>
 </li><br>
