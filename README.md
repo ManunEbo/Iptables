@@ -19,13 +19,13 @@ which will load the iptables rules into memory at boot.
         As a result the script appends the source IP address to an ipset that is used in a rule that<br>
         blocks IP addresses if HTTP or HTTPS packets received.<br>
     </p>
-    ```
-    iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
-    iptables -I INPUT -m set --match-set auto_blocked src -j DROP
-    ```
+    <code>
+        iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
+        iptables -I INPUT -m set --match-set auto_blocked src -j DROP
+    </code>
 </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20filter-by-mac.sh">filter-by-mac.sh</a><br>
+        <strong>filter-by-mac.sh</strong><br>
         <p>
             This script allows communication within the local area network only if it is coming<br>
             from desired MAC addresses.<br>
@@ -38,7 +38,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20ipset-block-country.sh">ipset-block-country.sh</a><br>
+        <strong>ipset-block-country.sh</strong><br>
         <p>
             This script downloads a file that contains a list of country network IP ranges.<br>
             Creates an ipset and then creates an iptables rule to block members of that set.<br>
@@ -51,7 +51,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20ipset-block-from-file.sh">ipset-block-from-file.sh</a><br>
+        <strong>ipset-block-from-file.sh</strong><br>
         <p>
             This script reads IP addresses from a file and creates an ipset.<br>
             It then creates a iptables rule to block that set.<br>
@@ -63,7 +63,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20limit-packets-per-second.sh">limit-packets-per-second.sh</a><br>
+        <strong>limit-packets-per-second.sh</strong><br>
         <p>
             This script limits the number of ICMP (Ping requests) packets per second to just one.<br>
             It also limits the number of HTTPS connections per second to 5; note this is for<br>
@@ -76,7 +76,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20load-balance-nat-ports.sh">load-balance-nat-ports.sh</a><br>
+        <strong>load-balance-nat-ports.sh</strong><br>
         <p>
         This script uses one interfaces to redirect traffic destined for certain ports<br>
         and another interface for all other traffics.
@@ -89,7 +89,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20match-by-time-interval.sh">match-by-time-interval.sh</a><br>
+        <strong>match-by-time-interval.sh</strong><br>
         <p>
             This script restricts SSH access between 08:00 to 18:00.<br>
             This also restricts HTTP access to a website on weekdays between 08:00 to 18:00.<br>
@@ -103,7 +103,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20max-quota.sh">max-quota.sh</a><br>
+        <strong>max-quota.sh</strong><br>
         <p>
             This script sets different max quotas for HTTP and HTTPS.
         </p>
@@ -114,7 +114,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20nat-masquerade.sh">nat-masquerade.sh</a><br>
+        <strong>nat-masquerade.sh</strong><br>
         <p>
             This script redirects traffic from a given network to a known public IP of an interface, Nating.<br>
             Alternatives are presented with the MASQUERADE and SNAT.
@@ -128,7 +128,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20port-forward-DNAT-loadbalance.sh">port-forward-DNAT-loadbalance.sh</a><br>
+        <strong>port-forward-DNAT-loadbalance.sh</strong><br>
         <p>
             This script forwards all packets headed to the public IP address of a router on a given port,<br>
             to a destination IP address.<br>
@@ -145,7 +145,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20stateful.sh">stateful.sh</a><br>
+        <strong>stateful.sh</strong><br>
         <p>
             This script allows initiating new connections out of the system while accepting the respective<br>
             return communication using the state information.
@@ -158,7 +158,7 @@ which will load the iptables rules into memory at boot.
         </div>
     </li><br>
     <li>
-        <a href="https://github.com/ManunEbo/Iptables/tree/master/%20user-defined-chain-with-macs.sh">user-defined-chain-with-macs.sh</a><br>
+        <strong>user-defined-chain-with-macs.sh</strong><br>
         <p>
             This script restricts incoming traffic to specified MAC addresses while allowing outgoing<br>
             traffic to any destination.<br>
