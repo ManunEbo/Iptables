@@ -25,6 +25,11 @@ iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_bloc
 iptables -I INPUT -m set --match-set auto_blocked src -j DROP
 </code>
 </div>
+
+```
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
+iptables -I INPUT -m set --match-set auto_blocked src -j DROP
+```
 </li><br>
 
 <li>
