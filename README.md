@@ -13,7 +13,6 @@ which will load the iptables rules into memory at boot.
 
 <ol>
 <li> 
-<strong>auto-block-ip.sh</strong><br>
 <a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/auto-block-ip.sh">auto-block-ip.sh</a><br>
 <p>
 This server isn't running a webserver. Thus no HTTP or HTTPS traffic is expected.<br>
@@ -29,7 +28,7 @@ iptables -I INPUT -m set --match-set auto_blocked src -j DROP
 </li><br>
 
 <li>
-<strong>filter-by-mac.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/filter-by-mac.sh">filter-by-mac.sh</a><br>
 <p>
 This script allows communication within the local area network only if it is coming<br>
 from desired MAC addresses.<br>
@@ -43,7 +42,7 @@ iptables -A FORWARD -m mac --mac-source $MAC -j ACCEPT
 </li><br>
 
 <li>
-<strong>ipset-block-country.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/ipset-block-country.sh">ipset-block-country.sh</a><br>
 <p>
 This script downloads a file that contains a list of country network IP ranges.<br>
 Creates an ipset and then creates an iptables rule to block members of that set.<br>
@@ -57,7 +56,7 @@ iptables -I INPUT -m set --match-set israel src -j DROP
 </li><br>
 
 <li>
-<strong>ipset-block-from-file.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/ipset-block-from-file.sh">ipset-block-from-file.sh</a><br>
 <p>
 This script reads IP addresses from a file and creates an ipset.<br>
 It then creates a iptables rule to block that set.<br>
@@ -70,7 +69,7 @@ iptables -I INPUT -m set --match-set bad_hosts src -j DROP
 </li><br>
 
 <li>
-<strong>limit-packets-per-second.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/limit-packets-per-second.sh">limit-packets-per-second.sh</a><br>
 <p>
 This script limits the number of ICMP (Ping requests) packets per second to just one.<br>
 It also limits the number of HTTPS connections per second to 5; note this is for<br>
@@ -84,7 +83,7 @@ iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limi
 </li><br>
 
 <li>
-<strong>load-balance-nat-ports.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/load-balance-nat-ports.sh">load-balance-nat-ports.sh</a><br>
 <p>
 This script uses one interfaces to redirect traffic destined for certain ports<br>
 and another interface for all other traffics.
@@ -98,7 +97,7 @@ iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 </li><br>
 
 <li>
-<strong>match-by-time-interval.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/match-by-time-interval.sh">match-by-time-interval.sh</a><br>
 <p>
 This script restricts SSH access between 08:00 to 18:00.<br>
 This also restricts HTTP access to a website on weekdays between 08:00 to 18:00.<br>
@@ -114,7 +113,7 @@ iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz \<br>
 </li><br>
 
 <li>
-<strong>max-quota.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/max-quota.sh">max-quota.sh</a><br>
 <p>
 This script sets different max quotas for HTTP and HTTPS.
 </p>
@@ -126,7 +125,7 @@ iptables -A FORWARD -o $INT -p $PROTOCOL --sport $PORT -m quota --quota $QUOTA1 
 </li><br>
 
 <li>
-<strong>nat-masquerade.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/nat-masquerade.sh">nat-masquerade.sh</a><br>
 <p>
 This script redirects traffic from a given network to a known public IP of an interface, Nating.<br>
 Alternatives are presented with the MASQUERADE and SNAT.
@@ -141,7 +140,7 @@ iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -p tcp -o enp0s3 -j SNAT --to-sour
 </li><br>
 
 <li>
-<strong>port-forward-DNAT-loadbalance.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/port-forward-DNAT-loadbalance.sh">port-forward-DNAT-loadbalance.sh</a><br>
 <p>
 This script forwards all packets headed to the public IP address of a router on a given port,<br>
 to a destination IP address.<br>
@@ -159,7 +158,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 192.1
 </li><br>
 
 <li>
-<strong>stateful.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/stateful.sh">stateful.sh</a><br>
 <p>
 This script allows initiating new connections out of the system while accepting the respective<br>
 return communication using the state information.
@@ -173,7 +172,7 @@ iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 </li><br>
 
 <li>
-<strong>user-defined-chain-with-macs.sh</strong><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/user-defined-chain-with-macs.sh">user-defined-chain-with-macs.sh</a><br>
 <p>
 This script restricts incoming traffic to specified MAC addresses while allowing outgoing<br>
 traffic to any destination.<br>
