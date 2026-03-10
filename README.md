@@ -17,10 +17,11 @@ which will load the iptables rules into memory at boot.
 <p>
 This server isn't running a webserver. Thus no HTTP or HTTPS traffic is expected.<br>
 As a result the script appends the source IP address to an ipset that is used in a rule that<br>
-blocks IP addresses if HTTP or HTTPS packets received.<br>
+blocks IP addresses if HTTP or HTTPS packets received.
 </p>
+
 ```
-iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src<br>
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -j SET --add-set auto_blocked src
 iptables -I INPUT -m set --match-set auto_blocked src -j DROP
 ```
 </li><br>
@@ -30,8 +31,9 @@ iptables -I INPUT -m set --match-set auto_blocked src -j DROP
 <p>
 This script allows communication within the local area network only if it is coming<br>
 from desired MAC addresses.<br>
-A default policy is used to ensure all other communication is dropped.<br>
+A default policy is used to ensure all other communication is dropped.
 </p>
+
 ```
 iptables -A FORWARD -m mac --mac-source $MAC -j ACCEPT
 ```
@@ -55,7 +57,7 @@ iptables -I INPUT -m set --match-set israel src -j DROP
 <a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/ipset-block-from-file.sh">ipset-block-from-file.sh</a><br>
 <p>
 This script reads IP addresses from a file and creates an ipset.<br>
-It then creates a iptables rule to block that set.<br>
+It then creates a iptables rule to block that set.
 </p>
 
 ```
@@ -98,9 +100,8 @@ All traffic outside of the time intervals are dropped.
 </p>
 
 ```
-iptables -A INPUT -p tcp --dport 22 -m time --kerneltz --timestart 8:00 --timestop 18:00 -j ACCEPT<br>
-iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz \<br>
- --weekdays Mon,Tue,Wed,Thu,Fri --timestart 8:00 --timestop 18:00 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -m time --kerneltz --timestart 8:00 --timestop 18:00 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 80 -d www.ubuntu.com -m time --kerneltz --weekdays Mon,Tue,Wed,Thu,Fri --timestart 8:00 --timestop 18:00 -j ACCEPT
 ```
 
 </li><br>
@@ -125,8 +126,8 @@ Alternatives are presented with the MASQUERADE and SNAT.
 </p>
 
 ```
-iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j NAT --to-source 80.0.0.1<br>
-iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE<br>
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j NAT --to-source 80.0.0.1
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -p tcp -o enp0s3 -j SNAT --to-source 80.0.0.1
 ```
 
@@ -143,8 +144,8 @@ Lastly, the script demonstrate simple loadbalancing within an IP range, 5 IP add
 </p>
 
 ```
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.0.20<br>
-iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 192.168.0.20:80<br>
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.0.20
+iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 192.168.0.20:80
 iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 192.168.0.20-192.168.0.24
 ```
 
@@ -158,7 +159,7 @@ return communication using the state information.
 </p>
 
 ```
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br>
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 ```
 
