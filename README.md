@@ -14,7 +14,7 @@ which will load the iptables rules into memory at boot.
 <ol>
 <li> 
 <strong>auto-block-ip.sh</strong><br>
-<a href="https://github.com/ManunEbo/Iptables/blob/master/auto-block-ip.sh">auto-block-ip.sh</a><br>
+<a href="https://github.com/ManunEbo/Iptables/blob/master/Scripts/auto-block-ip.sh">auto-block-ip.sh</a><br>
 <p>
 This server isn't running a webserver. Thus no HTTP or HTTPS traffic is expected.<br>
 As a result the script appends the source IP address to an ipset that is used in a rule that<br>
